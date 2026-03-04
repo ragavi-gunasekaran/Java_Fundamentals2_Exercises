@@ -1,6 +1,7 @@
 package lexicon.exercises;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -21,6 +22,11 @@ public class DateTimeExercise {
         exercise9();
         exercise10();
         exercise11();
+        exercise12();
+        exercise13();
+        exercise14();
+        exercise15();
+        exercise16();
     }
 
     //Exercise 1 – Current Date
@@ -113,5 +119,52 @@ public class DateTimeExercise {
         String time = "12:10:37.327258100";
         LocalTime localTime = LocalTime.parse(time);
         IO.println("LocalTime from a String by using the `.parse()` method is : "+localTime);
+    }
+
+    //Exercise 12 – Formatted Current Time
+    //Using `DateTimeFormatter` format LocalTime from current time and print it out as following pattern: **10:32:53**.
+    static void exercise12(){
+        LocalTime localTime = LocalTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String time = localTime.format(dateTimeFormatter);
+        IO.println("Current Local time using DateTimeFormatter is : "+time);
+    }
+
+    //Exercise 13 – Specific LocalDateTime
+    //Create a LocalDateTime with the date and time components as: **date: 2018-04-05, time: 10.00**.
+    static void exercise13(){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm");
+        String dateTime = localDateTime.format(dateTimeFormatter);
+        IO.println("Current Local Date and time using DateTimeFormatter is : "+dateTime);
+    }
+
+    //Exercise 14 – Formatted LocalDateTime
+    //Using `DateTimeFormatter` format the LocalDateTime object from exercise 13 to a String that should look like this: **torsdag 5 april 10:00**.
+    static void exercise14(){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("EEEE d MMMM HH:mm", new Locale("sv", "SE"));
+        String dateTime = localDateTime.format(dateTimeFormatter);
+        IO.println("Formatted date and time is  : "+dateTime);
+    }
+
+    //Exercise 15 – Combine Date and Time
+    //Create a LocalDateTime object by combining LocalDate object and LocalTime object.
+    static void exercise15(){
+        LocalDate localDate =LocalDate.now();
+        LocalTime localTime = LocalTime.now();
+        LocalDateTime localDateTime = localDate.atTime(localTime);
+        IO.println("Combination of localdate and localtime is   : "+localDateTime);
+    }
+
+    //Exercise 16 – Extract Components from LocalDateTime
+    //Create a LocalDateTime object. Then get the LocalDate and LocalTime components into separate objects of respective types from the LocalDateTime object.
+    static void exercise16(){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        LocalDate localDate = localDateTime.toLocalDate();
+        LocalTime localTime = localDateTime.toLocalTime();
+        IO.println("Local date from LocalDateTime is  : "+localDate);
+        IO.println("Local time from LocalDateTime is  : "+localTime);
+
     }
 }
