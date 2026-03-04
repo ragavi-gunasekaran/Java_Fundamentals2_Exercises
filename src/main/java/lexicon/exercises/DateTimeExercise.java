@@ -1,6 +1,7 @@
 package lexicon.exercises;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -17,6 +18,9 @@ public class DateTimeExercise {
         exercise6();
         exercise7();
         exercise8();
+        exercise9();
+        exercise10();
+        exercise11();
     }
 
     //Exercise 1 – Current Date
@@ -87,5 +91,27 @@ public class DateTimeExercise {
         Period period = Period.of(4,7,29);
         localDate = (LocalDate) period.addTo(localDate);
         IO.println("Adding the period to the current date gives us the date : "+ localDate);
+    }
+
+    //Exercise 9 – Current Time
+    //Create a LocalTime object of the current time.
+    static void exercise9(){
+        LocalTime localTime = LocalTime.now();
+        IO.println("Local time now is  : "+ localTime);
+    }
+
+    //Exercise 10 – Nanoseconds of LocalTime
+    //Extract the nanoseconds of a LocalTime object of current time. Print out the nanoseconds.
+    static void exercise10(){
+        LocalTime localTime = LocalTime.now();
+        IO.println("Nanoseconds of Local time now is  : "+ localTime.getNano());
+    }
+
+    //Exercise 11 – Parse Time from String
+    //Create a LocalTime object from a String using the `.parse()` method.
+    static void exercise11(){
+        String time = "12:10:37.327258100";
+        LocalTime localTime = LocalTime.parse(time);
+        IO.println("LocalTime from a String by using the `.parse()` method is : "+localTime);
     }
 }
