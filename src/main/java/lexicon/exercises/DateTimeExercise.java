@@ -5,12 +5,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class DateTimeExercise {
-    
+
     static void main() {
         IO.println("Hello and welcome to Java fundamentals_2 Exercises !!!!");
         exercise1();
         exercise2();
         exercise3();
+        exercise4();
     }
 
     //Exercise 1 – Current Date
@@ -38,4 +39,13 @@ public class DateTimeExercise {
             IO.println("Day "+ (i + 1) + " of last week is : "+date);
         }
     }
+
+    //Exercise 4 – Parse Date from String
+    //Create a LocalDate object from a String by using the `.parse()` method.
+    static void exercise4(){
+        String date = "2026-03-04";
+        LocalDate localDate = LocalDate.parse(date);
+        IO.println("LocalDate from a String by using the `.parse()` method is : "+localDate);
+    }
+
 }
