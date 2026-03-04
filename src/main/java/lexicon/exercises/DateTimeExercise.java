@@ -1,11 +1,7 @@
 package lexicon.exercises;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Period;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 import java.util.Locale;
 
 public class DateTimeExercise {
@@ -50,7 +46,7 @@ public class DateTimeExercise {
     //Exercise 3 – Last Monday and the Entire Week
     //Create a LocalDate of last Monday. Then print out the entire week in a loop using standard ISO format.
     static void exercise3(){
-        LocalDate localDate = LocalDate.of(2026,02,23);
+        LocalDate localDate = LocalDate.of(2026, 2,23);
         for(int i = 1; i < 7 ; i++){
             LocalDate date = localDate.plusDays(i-1);
             IO.println("Day "+ (i + 1) + " of last week is : "+date);
@@ -136,7 +132,7 @@ public class DateTimeExercise {
     //Create a LocalDateTime with the date and time components as: **date: 2018-04-05, time: 10.00**.
     static void exercise13(){
         LocalDateTime localDateTime = LocalDateTime.now();
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         String dateTime = localDateTime.format(dateTimeFormatter);
         IO.println("Current Local Date and time using DateTimeFormatter is : "+dateTime);
     }
@@ -156,7 +152,7 @@ public class DateTimeExercise {
         LocalDate localDate =LocalDate.now();
         LocalTime localTime = LocalTime.now();
         LocalDateTime localDateTime = localDate.atTime(localTime);
-        IO.println("Combination of localdate and localtime is   : "+localDateTime);
+        IO.println("Combination of Local-Date and Local-Time is   : "+localDateTime);
     }
 
     //Exercise 16 – Extract Components from LocalDateTime
@@ -180,10 +176,33 @@ public class DateTimeExercise {
     //22  23  24  25  26  27  28
     //29  30  31
     static void extraExercise(){
-        LocalDate localDate = LocalDate.of(2018,10,1);
-        IO.println("Month of the year given is   : "+localDate.getMonth());
-        Calendar calendar = Calendar.getInstance();
-
+        IO.println();
+        IO.println("Calendar for 2018 : ");
+        for (Month month : Month.values()) {
+            IO.println("     " + month + "     ");
+            LocalDate localDate = LocalDate.of(2018,month,1);
+            IO.println("M   T   W   T   F   S   S");
+            int lengthOfMonth = localDate.lengthOfMonth();
+            int dayOfTheWeek = localDate.getDayOfWeek().getValue();
+            for (int i = 1; i < dayOfTheWeek; i++) {
+                IO.print("    ");
+            }
+            for (int days = 1; days <= lengthOfMonth; days++) {
+                if (days == 1) {
+                    IO.print("");
+                }
+                IO.print(days);
+                if (days >= 10) {
+                    IO.print("  ");
+                } else {
+                    IO.print("   ");
+                }
+                if ((days + dayOfTheWeek - 1) % 7 == 0) {
+                    IO.println();
+                }
+            }
+            IO.println();
+            IO.println();
+        }
     }
-
 }
