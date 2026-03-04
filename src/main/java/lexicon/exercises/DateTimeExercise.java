@@ -13,6 +13,7 @@ public class DateTimeExercise {
         exercise3();
         exercise4();
         exercise5();
+        exercise6();
     }
 
     //Exercise 1 – Current Date
@@ -55,6 +56,16 @@ public class DateTimeExercise {
     static void exercise5(){
         LocalDate localDate = LocalDate.of(1990,10,18);
         IO.println("'"+localDate+"'"+"  ->  "+"'"+localDate.getDayOfWeek()+"'");
+    }
+
+    //Exercise 6 – Future and Past Date
+    //Create a LocalDate of current date plus 10 years and minus 10 months. From that date extract the month and print it out.
+    static void exercise6(){
+        LocalDate localDate = LocalDate.now();
+        LocalDate futureDate = localDate.plusYears(10);
+        IO.println("Month extracted by adding 10 years to the current date is :" + futureDate.getMonth());
+        LocalDate pastDate = localDate.minusMonths(10);
+        IO.println("Month extracted by minus 10 months to the current date is :" + pastDate.getMonth());
     }
 
 }
