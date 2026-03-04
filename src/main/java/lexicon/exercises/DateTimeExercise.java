@@ -1,6 +1,7 @@
 package lexicon.exercises;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
@@ -14,6 +15,7 @@ public class DateTimeExercise {
         exercise4();
         exercise5();
         exercise6();
+        exercise7();
     }
 
     //Exercise 1 – Current Date
@@ -66,6 +68,15 @@ public class DateTimeExercise {
         IO.println("Month extracted by adding 10 years to the current date is :" + futureDate.getMonth());
         LocalDate pastDate = localDate.minusMonths(10);
         IO.println("Month extracted by minus 10 months to the current date is :" + pastDate.getMonth());
+    }
+
+    //Exercise 7 – Period Between Dates
+    //Using the LocalDate from exercise 6 and your birthdate, create a Period between your birthdate and the date from exercise 6. Print out the elapsed years, months and days.
+    static void exercise7(){
+        LocalDate localDate = LocalDate.now();
+        LocalDate birthdate = LocalDate.of(1990,10,18);
+        Period period = Period.between(birthdate, localDate);
+        IO.println("Elapsed years are : " + period.getYears() + ", Months are : "+period.getMonths()+ " and Days are : "+period.getDays() + " from my birthday (18-10-1990)");
     }
 
 }
