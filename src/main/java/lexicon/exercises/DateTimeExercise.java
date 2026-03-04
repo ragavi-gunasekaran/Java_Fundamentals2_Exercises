@@ -12,6 +12,7 @@ public class DateTimeExercise {
         exercise2();
         exercise3();
         exercise4();
+        exercise5();
     }
 
     //Exercise 1 – Current Date
@@ -46,6 +47,14 @@ public class DateTimeExercise {
         String date = "2026-03-04";
         LocalDate localDate = LocalDate.parse(date);
         IO.println("LocalDate from a String by using the `.parse()` method is : "+localDate);
+    }
+
+    //Exercise 5 – Day of the Week
+    //The date time API provides enums for time units such as day and month. Create a LocalDate of your birthday and extract the day of week for that date.
+    //Example: `1945-05-08` -> `TUESDAY`
+    static void exercise5(){
+        LocalDate localDate = LocalDate.of(1990,10,18);
+        IO.println("'"+localDate+"'"+"  ->  "+"'"+localDate.getDayOfWeek()+"'");
     }
 
 }
