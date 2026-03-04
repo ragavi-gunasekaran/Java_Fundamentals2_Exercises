@@ -16,6 +16,7 @@ public class DateTimeExercise {
         exercise5();
         exercise6();
         exercise7();
+        exercise8();
     }
 
     //Exercise 1 – Current Date
@@ -79,4 +80,12 @@ public class DateTimeExercise {
         IO.println("Elapsed years are : " + period.getYears() + ", Months are : "+period.getMonths()+ " and Days are : "+period.getDays() + " from my birthday (18-10-1990)");
     }
 
+    //Exercise 8 – Add Period to Current Date
+    //Create a period of 4 years, 7 months and 29 days. Then create a LocalDate of current date and add the period you created to the current date.
+    static void exercise8(){
+        LocalDate localDate = LocalDate.now();
+        Period period = Period.of(4,7,29);
+        localDate = (LocalDate) period.addTo(localDate);
+        IO.println("Adding the period to the current date gives us the date : "+ localDate);
+    }
 }
