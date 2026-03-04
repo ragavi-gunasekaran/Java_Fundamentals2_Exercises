@@ -5,12 +5,13 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class DateTimeExercise {
 
     static void main() {
-        IO.println("Hello and welcome to Java fundamentals_2 Exercises !!!!");
+        IO.println("Hello and welcome to Java fundamentals_2 Exercises - DateTime !!!!");
         exercise1();
         exercise2();
         exercise3();
@@ -27,6 +28,7 @@ public class DateTimeExercise {
         exercise14();
         exercise15();
         exercise16();
+        extraExercise();
     }
 
     //Exercise 1 – Current Date
@@ -165,6 +167,23 @@ public class DateTimeExercise {
         LocalTime localTime = localDateTime.toLocalTime();
         IO.println("Local date from LocalDateTime is  : "+localDate);
         IO.println("Local time from LocalDateTime is  : "+localTime);
+    }
+
+    //Extra Challenge – Calendar for 2018
+    //Create your own calendar for the year 2018. The program should print out all days of the year, organized in a monthly calendar style.
+    //Expected output example (for January):**
+            //JANUARY
+    //M   T   W   T   F   S   S
+    //1   2   3   4   5   6   7
+    //8   9   10  11  12  13  14
+    //15  16  17  18  19  20  21
+    //22  23  24  25  26  27  28
+    //29  30  31
+    static void extraExercise(){
+        LocalDate localDate = LocalDate.of(2018,10,1);
+        IO.println("Month of the year given is   : "+localDate.getMonth());
+        Calendar calendar = Calendar.getInstance();
 
     }
+
 }
