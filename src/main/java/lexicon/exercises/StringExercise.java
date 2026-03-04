@@ -1,6 +1,6 @@
 package lexicon.exercises;
 
-import java.time.LocalDate;
+import java.util.Arrays;
 
 public class StringExercise {
 
@@ -15,6 +15,8 @@ public class StringExercise {
         exercise7();
         exercise8();
         exercise9();
+        exercise10();
+        exercise11();
     }
 
     //Exercise 1 – Length of a String
@@ -51,7 +53,6 @@ public class StringExercise {
         String text = "CAPS EQUALS SCREAMING";
         IO.println(" Lower case if the text give : "+ text.toLowerCase());
         IO.println(" Upper case if the text give : "+ text.toUpperCase());
-
     }
 
     //Exercise 6 – Trim String
@@ -66,7 +67,7 @@ public class StringExercise {
     //Parse the following int: 20 to a String and add a 20 to the end of the String. Printing it out should return: "2020".
     static void exercise7(){
         int n = 20;
-        String text = String.valueOf(n)+"20";
+        String text = n +"20";
         IO.println(" Parse to String : "+ text);
     }
 
@@ -90,4 +91,24 @@ public class StringExercise {
         }
     }
 
+    //Exercise 10 – Convert to Char Array
+    //Convert the following String: "ThisShouldBeConverted" to a char array. Iterate through the char array and print out each element.
+    static void exercise10(){
+        IO.println();
+        String text = "ThisShouldBeConverted";
+        char[] ch = text.toCharArray();
+        IO.println(" Char array of (ThisShouldBeConverted) : ");
+        for(char names:ch){
+            IO.println(" "+names);
+        }
+    }
+
+    //Exercise 11 – Convert Char Array to String
+    //Convert the following char[]: {'J','a','v','a'} to a String and print it out.
+    static void exercise11(){
+        IO.println();
+        char[] ch = {'J','a','v','a'};
+        String text = Arrays.toString(ch);
+        IO.println(" Convert Char Array to String : " + text);
+    }
 }
