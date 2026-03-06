@@ -97,7 +97,7 @@ public class StringExercise {
         IO.println();
         String text = "ThisShouldBeConverted";
         char[] ch = text.toCharArray();
-        IO.println(" Char array of (ThisShouldBeConverted) : ");
+        IO.println(" Char array of ('ThisShouldBeConverted') : ");
         for(char names:ch){
             IO.println(" "+names);
         }
